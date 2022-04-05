@@ -38,7 +38,6 @@ func AddUser(data string) (map[string]string, error) {
 	doc, _, err := client.Collection("users").Add(ctx, user)
 
 	if err != nil {
-		// log.Fatalf("Failed adding alovelace: %v", err)
 		log.Printf("Error adding doc to `users` collection\n%s:\nError: %s", user, err)
 		client.Close()
 		return nil, err
