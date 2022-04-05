@@ -1,6 +1,6 @@
-package types
+package interfaces
 
-type User struct {
+type EnquireForm struct {
 	AnimalType   string
 	Email        string
 	FirstName    string

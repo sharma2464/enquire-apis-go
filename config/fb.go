@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"main/types"
+	"main/interfaces"
 
 	"cloud.google.com/go/firestore"
 	firebase "firebase.google.com/go"
@@ -33,7 +33,7 @@ func GetClient() (*firestore.Client, context.Context, error) {
 
 func AddUser(data string) (map[string]string, error) {
 	client, ctx, _ := GetClient()
-	var user types.EnquireForm
+	var user interfaces.EnquireForm
 	json.Unmarshal([]byte(data), &user)
 	doc, _, err := client.Collection("users").Add(ctx, user)
 

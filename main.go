@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"main/interfaces"
 	"main/services"
-	"main/types"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -45,7 +45,7 @@ func main() {
 	})
 
 	r.POST("/enquire", func(c *gin.Context) {
-		var form types.EnquireForm
+		var form interfaces.EnquireForm
 		if c.ShouldBind(&form) == nil {
 			if form.FirstName != "" && form.LastName != "" && form.PhoneNumber != "" && form.Email != "" && form.NumberOfPets != "" && form.AnimalType != "" && form.Pincode != "" {
 				b, err := json.Marshal(form)

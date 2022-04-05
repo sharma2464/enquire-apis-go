@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"log"
 	"main/config"
-	"main/types"
+	"main/interfaces"
 
 	"google.golang.org/api/iterator"
 )
 
 func AddUser(data string) (map[string]string, error) {
 	client, ctx, _ := config.GetClient()
-	var user types.EnquireForm
+	var user interfaces.EnquireForm
 	json.Unmarshal([]byte(data), &user)
 	doc, _, err := client.Collection("users").Add(ctx, user)
 
